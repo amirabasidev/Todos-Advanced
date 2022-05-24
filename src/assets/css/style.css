@@ -1,3 +1,11 @@
+/* ---------- VARIABLE ----------*/
+:root {
+  /* Colors */
+  --color-white: rgb(255, 255, 255);
+  --color-black: rgb(49, 49, 49);
+  --color-blue: rgb(24, 144, 255);
+}
+
 /* ---------- GLOBAL CLASS ----------*/
 /* Container */
 .container {
@@ -7,4 +15,27 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+}
+
+/* ---------- STYLE ----------*/
+/* Header */
+.header__card > .ant-card-body{
+  padding: 15px 20px;
+}
+.logo {
+  margin-bottom: 0 !important;
+  font-weight: 700 !important;
+  color: var(--color-blue) !important;
+}
+.github__btn {
+  background: var(--color-black);
+  border-color: var(--color-black);
+}
+.github__btn:hover {
+  background: var(--color-white);
+  border-color: rgb(49, 49, 49);
+  color: var(--color-black);
+}
+.github__icon {
+  font-size: 16px;
 }
