@@ -1,0 +1,10 @@
+/* ---------- GLOBAL CLASS ----------*/
+/* Container */
+.container {
+  width: 100%;
+  max-width: 90%;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
