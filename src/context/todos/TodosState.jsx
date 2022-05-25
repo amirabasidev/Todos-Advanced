@@ -4,7 +4,7 @@ import todosContext from "./todosContext";
 import todosReducer from "./todosReducer";
 
 import todos from "../../config/todos";
-import { CREATE_TODO } from "../type";
+import { CREATE_TODO, DELETE_TODO } from "../type";
 
 const TodosState = ({ children }) => {
   const initialState = {
@@ -17,8 +17,12 @@ const TodosState = ({ children }) => {
     dispatch({ type: CREATE_TODO, payload: todo });
   };
 
+  const deleteTodo = (id) => {
+    dispatch({ type: DELETE_TODO, payload: id });
+  };
+
   return (
-    <todosContext.Provider value={{ ...state, createTodo }}>
+    <todosContext.Provider value={{ ...state, createTodo, deleteTodo }}>
       {children}
     </todosContext.Provider>
   );

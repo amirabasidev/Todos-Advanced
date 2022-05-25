@@ -1,8 +1,18 @@
+import { useContext } from "use-context-selector";
 import { List, Switch, Badge, Row, Col, Button, Space } from "antd";
 import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 
+import todosContext from "../../context/todos/todosContext";
+
 const Todo = ({ todo }) => {
-  const { name, type, isComplate } = todo;
+  const { id,name, type, isComplate } = todo;
+
+
+  const { deleteTodo } = useContext(todosContext);
+
+  const deleteHandler = () => {
+    deleteTodo(id)
+  }
 
   return (
     <List.Item>
@@ -20,7 +30,7 @@ const Todo = ({ todo }) => {
             <Button type="primary" className="todo__btn-edit">
               Edit
             </Button>
-            <Button type="primary" danger>
+            <Button type="primary" danger onClick={deleteHandler}>
               Delete
             </Button>
           </Space>
