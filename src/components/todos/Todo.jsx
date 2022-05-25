@@ -5,14 +5,17 @@ import { CheckOutlined, CloseOutlined } from "@ant-design/icons";
 import todosContext from "../../context/todos/todosContext";
 
 const Todo = ({ todo }) => {
-  const { id,name, type, isComplate } = todo;
+  const { id, name, type, isComplate } = todo;
 
-
-  const { deleteTodo } = useContext(todosContext);
+  const { deleteTodo, toggleComplateTodo } = useContext(todosContext);
 
   const deleteHandler = () => {
-    deleteTodo(id)
-  }
+    deleteTodo(id);
+  };
+
+  const ComplateHandler = () => {
+    toggleComplateTodo(id);
+  };
 
   return (
     <List.Item>
@@ -26,6 +29,7 @@ const Todo = ({ todo }) => {
               checkedChildren={<CheckOutlined />}
               unCheckedChildren={<CloseOutlined />}
               checked={isComplate}
+              onChange={ComplateHandler}
             />
             <Button type="primary" className="todo__btn-edit">
               Edit
