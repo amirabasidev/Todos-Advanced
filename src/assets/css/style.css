@@ -16,10 +16,13 @@
   flex-direction: column;
   flex-grow: 1;
 }
+.w-100{
+  width: 100%;
+}
 
 /* ---------- STYLE ----------*/
 /* Header */
-.header__card > .ant-card-body{
+.header__card > .ant-card-body {
   padding: 15px 20px;
 }
 .logo {
