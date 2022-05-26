@@ -14,7 +14,7 @@ const Filters = () => {
             <FiltersSort />
           </Col>
           <Col span={4}>
-            <FiltersTypes />
+            <FiltersTypes filter/>
           </Col>
           <Col span={9}>
             <FiltersSearch />

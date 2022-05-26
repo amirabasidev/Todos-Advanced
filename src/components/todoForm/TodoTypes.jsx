@@ -1,9 +1,15 @@
 import { Select, Badge, Form } from "antd";
+import { useContext } from "use-context-selector";
 
 import typesTodo from "../../config/typesTodo";
+import filtersContext from "../../context/filters/filtersContext";
 
-const TodoTypes = () => {
+const TodoTypes = ({ filter }) => {
+  const { typeTodos } = useContext(filtersContext);
+
   const { Option } = Select;
+
+  const onChangeHandler = filter && typeTodos;
 
   return (
     <Form.Item
@@ -11,7 +17,7 @@ const TodoTypes = () => {
       className="from__item"
       rules={[{ required: true, message: "Please Select Todo Type!" }]}
     >
-      <Select className="w-100" placeholder="Types">
+      <Select className="w-100" onChange={onChangeHandler} placeholder="Types">
         {typesTodo.map((type) => (
           <Option key={type.key} value={type.name}>
             <Badge color={type.color} text={type.name} />
