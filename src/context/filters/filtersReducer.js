@@ -1,4 +1,4 @@
-import { SORT_TODOS, TYPE_TODOS, SEARCH_TODOS } from "../type";
+import { SORT_TODOS, TYPE_TODOS, SEARCH_TODOS, STATUS_TODO } from "../type";
 
 const filtersReducer = (state, action) => {
   switch (action.type) {
@@ -8,6 +8,8 @@ const filtersReducer = (state, action) => {
       return { ...state, type: action.payload };
     case SEARCH_TODOS:
       return { ...state, search: action.payload };
+    case STATUS_TODO:
+      return { ...state, status: action.payload };
     default:
       return state;
   }
