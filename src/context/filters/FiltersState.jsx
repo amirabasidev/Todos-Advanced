@@ -3,7 +3,7 @@ import { useReducer } from "react";
 import filtersContext from "./filtersContext";
 import filtersReducer from "./filtersReducer";
 
-import { SORT_TODOS,TYPE_TODOS } from "../type";
+import { SORT_TODOS, TYPE_TODOS, SEARCH_TODOS } from "../type";
 
 const FiltersState = ({ children }) => {
   const initialState = {
@@ -23,8 +23,14 @@ const FiltersState = ({ children }) => {
     dispatch({ type: TYPE_TODOS, payload: value });
   };
 
+  const searchTodos = (value) => {
+    dispatch({ type: SEARCH_TODOS, payload: value });
+  };
+
   return (
-    <filtersContext.Provider value={{ ...state, sortTodos,typeTodos }}>
+    <filtersContext.Provider
+      value={{ ...state, sortTodos, typeTodos, searchTodos }}
+    >
       {children}
     </filtersContext.Provider>
   );
