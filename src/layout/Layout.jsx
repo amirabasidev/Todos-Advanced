@@ -1,3 +1,4 @@
+import { Space } from "antd";
 import TodosState from "../context/todos/TodosState";
 import FiltersState from "../context/filters/FiltersState";
 
@@ -8,7 +9,15 @@ const Layout = ({ children }) => {
     <TodosState>
       <FiltersState>
         <Header />
-        <main className="container">{children}</main>
+        <main className="container">
+          <Space
+            direction="vertical"
+            size={20}
+            className="d-flex"
+          >
+            {children}
+          </Space>
+        </main>
       </FiltersState>
     </TodosState>
   );
