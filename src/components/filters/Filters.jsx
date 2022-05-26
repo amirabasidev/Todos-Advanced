@@ -9,7 +9,7 @@ const Filters = () => {
   return (
     <Card>
       <Form>
-        <Row justify="center" wrap={false} gutter={20}>
+        <Row justify="space-between" wrap={false}>
           <Col span={4}>
             <FiltersSort />
           </Col>
