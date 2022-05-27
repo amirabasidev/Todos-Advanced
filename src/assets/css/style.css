@@ -60,3 +60,11 @@
   background: var(--color-yellow);
   border-color: var(--color-yellow);
 }
+/* Status */
+.status__container{
+  justify-content: space-between;
+   width: 100%; 
+}
+.status__title-active{
+  color: var(--color-blue) !important;
+}
