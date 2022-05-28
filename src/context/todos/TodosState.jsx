@@ -4,7 +4,12 @@ import todosContext from "./todosContext";
 import todosReducer from "./todosReducer";
 
 import todos from "../../config/todos";
-import { CREATE_TODO, DELETE_TODO, TOGGLE_COMPLATE_TODO } from "../type";
+import {
+  CREATE_TODO,
+  DELETE_TODO,
+  TOGGLE_COMPLATE_TODO,
+  EDIT_TODO,
+} from "../type";
 
 const TodosState = ({ children }) => {
   const initialState = {
@@ -25,9 +30,13 @@ const TodosState = ({ children }) => {
     dispatch({ type: TOGGLE_COMPLATE_TODO, payload: id });
   };
 
+  const editTodo = (todo) => {
+    dispatch({ type: EDIT_TODO, payload: todo });
+  };
+
   return (
     <todosContext.Provider
-      value={{ ...state, createTodo, deleteTodo, toggleComplateTodo }}
+      value={{ ...state, createTodo, deleteTodo, toggleComplateTodo, editTodo }}
     >
       {children}
     </todosContext.Provider>

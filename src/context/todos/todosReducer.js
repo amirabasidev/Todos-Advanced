@@ -1,4 +1,9 @@
-import { CREATE_TODO, DELETE_TODO,TOGGLE_COMPLATE_TODO } from "../type";
+import {
+  CREATE_TODO,
+  DELETE_TODO,
+  TOGGLE_COMPLATE_TODO,
+  EDIT_TODO,
+} from "../type";
 
 const todosReducer = (state, action) => {
   switch (action.type) {
@@ -17,7 +22,12 @@ const todosReducer = (state, action) => {
       );
       return { ...state, todos: newTodos };
     }
-
+    case EDIT_TODO: {
+      const newTodos = state.todos.map((todo) =>
+        todo.id == action.payload.id ? action.payload : todo,
+      );
+      return { ...state, todos: newTodos };
+    }
     default:
       return state;
   }
