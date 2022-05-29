@@ -1,13 +1,16 @@
 import { Radio } from "antd";
-import { useContext } from "use-context-selector";
+import { useContextSelector } from "use-context-selector";
 
 import { statusTodos as data } from "../../config/filters";
 import filtersContext from "../../context/filters/filtersContext";
 
 const FiltersStatus = () => {
-  const { statusTodos } = useContext(filtersContext);
+  const setStatus = useContextSelector(
+    filtersContext,
+    (state) => state.setStatus,
+  );
 
-  const onChangeHandler = (e) => statusTodos(e.target.value);
+  const onChangeHandler = (e) => setStatus(e.target.value);
 
   return (
     <Radio.Group

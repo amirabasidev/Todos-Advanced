@@ -1,15 +1,20 @@
 import { Input } from "antd";
-import { useContext } from "use-context-selector";
+import { useContextSelector } from "use-context-selector";
 
 import filtersContext from "../../context/filters/filtersContext";
 
 const FiltersSearch = () => {
   const { Search } = Input;
 
-  const { searchTodos } = useContext(filtersContext);
+  const setSearch = useContextSelector(
+    filtersContext,
+    (state) => state.setSearch,
+  );
+
+  const onSearchHandler = (value) => setSearch(value);
 
   return (
-    <Search onSearch={searchTodos} placeholder="Search Todos" allowClear />
+    <Search onSearch={onSearchHandler} placeholder="Search Todos" allowClear />
   );
 };
 

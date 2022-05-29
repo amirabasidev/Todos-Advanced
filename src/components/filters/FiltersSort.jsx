@@ -1,5 +1,5 @@
 import { Select } from "antd";
-import { useContext } from "use-context-selector";
+import { useContextSelector } from "use-context-selector";
 
 import { sortTodos as data } from "../../config/filters";
 import filtersContext from "../../context/filters/filtersContext";
@@ -7,10 +7,12 @@ import filtersContext from "../../context/filters/filtersContext";
 const SelectInput = () => {
   const { Option } = Select;
 
-  const { sortTodos } = useContext(filtersContext);
+  const setSort = useContextSelector(filtersContext, (state) => state.setSort);
 
+  const onChangeHandler = (value) => setSort(value);
+  
   return (
-    <Select onChange={sortTodos} placeholder="Sort" className="w-100">
+    <Select onChange={onChangeHandler} placeholder="Sort" className="w-100">
       {data.map(({ title, key }) => (
         <Option key={key} value={title}>
           {title}
