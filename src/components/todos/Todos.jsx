@@ -1,5 +1,5 @@
 import { Card, List, Empty } from "antd";
-import { useContext } from "use-context-selector";
+import { useContextSelector, useContext } from "use-context-selector";
 
 import Todo from "./Todo";
 
@@ -9,7 +9,7 @@ import filtersTodos from "../../utils/filtersTodos";
 
 const Todos = () => {
   const { todos } = useContext(todosContext);
-  const filters = useContext(filtersContext);
+  const filters = useContextSelector(filtersContext, (state) => state.filters);
 
   const todosToShow = filtersTodos(todos, filters);
 
