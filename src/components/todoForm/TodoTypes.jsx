@@ -15,13 +15,18 @@ const TodoTypes = ({ filter }) => {
     <Form.Item
       name="type"
       className="from__item"
-      rules={[{ required: true, message: "Please Select Todo Type!" }]}
+      rules={!filter && [{ required: true, message: "Please Select Todo Type!" }]}
     >
       <Select
         className="w-100"
         onChange={filter && onChangeHandler}
         placeholder="Types"
       >
+        {filter && (
+          <Option value="">
+          <Badge color="#000" text="All" />
+        </Option>
+        )}
         {typesTodo.map((type) => (
           <Option key={type.key} value={type.name}>
             <Badge color={type.color} text={type.name} />
